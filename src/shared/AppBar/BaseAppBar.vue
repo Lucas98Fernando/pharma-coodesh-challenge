@@ -15,10 +15,10 @@
 
     <v-spacer></v-spacer>
 
-    <div class="mr-3">Olá, seja bem-vindo!</div>
+    <div class="hidden-sm-and-down mr-3">Olá, seja bem-vindo!</div>
 
     <v-avatar>
-      <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+      <img src="@/assets/images/lucas.jpg" alt="Lucas" />
     </v-avatar>
   </v-app-bar>
 </template>

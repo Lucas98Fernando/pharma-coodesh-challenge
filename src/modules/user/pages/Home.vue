@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TableUsers :users="getUsers" />
+    <TableUsers :users="getUsers" :itemsPerPage="qtdResults" />
     <v-container class="d-flex justify-center align-center">
       <v-btn
         color="teal"
@@ -39,6 +39,7 @@ export default Vue.extend({
       getUsers: [],
       isLoading: false,
       showOverlay: false,
+      qtdResults: 5,
     };
   },
 
@@ -58,9 +59,10 @@ export default Vue.extend({
       // Utilizando o try and catch para realizar um tratamento, caso aconteça algo de errado na store ou no axios
       try {
         this.showOverlay = true;
-        this.getUsers = [];
+        // this.getUsers = [];
         this.isLoading = true;
-        await this.ActionGetUsers();
+        let incrementResults = this.qtdResults;
+        await this.ActionGetUsers(incrementResults);
         this.users.results.forEach((user: IGetUserData) => {
           // Atribuindo um new Date para poder formatar para o formato pt-br
           let birthFormated = new Date(user.dob.date);
@@ -80,6 +82,7 @@ export default Vue.extend({
               : "Não possui ID",
           });
         });
+        incrementResults = this.qtdResults += 5;
         console.log(this.users.results);
       } catch (e) {
         this.$root.$emit("show-base-dialog", {

@@ -3,6 +3,7 @@
     :headers="headers"
     :items="users"
     :search="search"
+    :items-per-page="itemsPerPage"
     :footer-props="footerConfig"
     sort-by="name"
     hide-default-footer
@@ -11,14 +12,18 @@
       <v-container>
         <v-row class="py-4" justify="center">
           <v-col cols="12" class="text-center">
-            <h2>Lista de pacientes da Pharma .Inc</h2>
+            <h2>
+              Lista de pacientes da
+              <span class="teal--text">Pharma .Inc</span>
+            </h2>
           </v-col>
           <v-col cols="12">
             <v-text-field
               v-model="search"
+              color="teal"
               append-icon="mdi-account-search-outline"
               label="Pesquisar"
-              placeholder="Procurar por..."
+              placeholder="Procurar por nome, gênero, etc..."
               outlined
             ></v-text-field>
           </v-col>
@@ -44,7 +49,9 @@
                 {{ userInfo.email }}
               </v-list-item-subtitle>
               <v-list-item-subtitle>
-                <v-icon small class="mr-1">mdi-gender-male-female</v-icon>
+                <v-icon small class="mr-1">
+                  mdi-gender-{{ toggleGenderIcon }}
+                </v-icon>
                 {{ userInfo.gender }}
               </v-list-item-subtitle>
               <v-list-item-subtitle>
@@ -116,6 +123,9 @@ export default Vue.extend({
       type: Array,
       required: true,
     },
+    itemsPerPage: {
+      type: Number,
+    },
   },
 
   data() {
@@ -164,6 +174,13 @@ export default Vue.extend({
   watch: {
     dialog(val) {
       val || this.close();
+    },
+  },
+
+  computed: {
+    // Método para colocar o ícone correspondente para o gênero masculino ou feminino de maneira dinâmica
+    toggleGenderIcon(): string {
+      return this.userInfo.gender === "Feminino" ? "female" : "male";
     },
   },
 
