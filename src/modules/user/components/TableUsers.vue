@@ -10,7 +10,7 @@
       <v-container>
         <v-row class="py-4" justify="center">
           <v-col cols="12" class="text-center">
-            <h2>Lista de usuários da Pharma .Inc</h2>
+            <h2>Lista de pacientes da Pharma .Inc</h2>
           </v-col>
           <v-col cols="12">
             <v-text-field
@@ -92,7 +92,14 @@
         <span>Ver detalhes</span>
       </v-tooltip>
     </template>
-    <template v-slot:no-data> Nenhum usuário encontrado </template>
+    <template v-slot:no-data>
+      <div class="py-4">Nenhum usuário encontrado</div>
+      <img
+        src="../../../assets/images/not-found.png"
+        alt="Nenhum dado encontrado"
+        width="300px"
+      />
+    </template>
   </v-data-table>
 </template>
 
@@ -137,7 +144,6 @@ export default Vue.extend({
       footerConfig: {
         itemsPerPageText: "Resultados por página",
       },
-      editedIndex: -1,
       userInfo: {
         fullName: "",
         title: "",
@@ -162,7 +168,7 @@ export default Vue.extend({
 
   methods: {
     viewUserInfo(item: IUserData) {
-      this.editedIndex = this.users.indexOf(item);
+      // userInfo recebe tudo o que vem de item
       this.userInfo = Object.assign({}, item);
       this.dialog = true;
     },

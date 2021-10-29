@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <TableUsers :users="getUsers" />
-  </div>
+  <TableUsers :users="getUsers" />
 </template>
 
 <script lang="ts">
@@ -37,12 +35,18 @@ export default Vue.extend({
           nanationality: user.nat,
           address: `${user.location.street.name}, ${user.location.street.number} - ${user.location.city} `,
           country: user.location.country,
-          identification: user.id.value ? user.id.value : "Não possui ID",
+          identification: user.id.value
+            ? user.id.value.trim()
+            : "Não possui ID",
         });
       });
       console.log(this.users.results);
     } catch (e) {
-      console.log(e);
+      this.$root.$emit("show-base-dialog", {
+        titleMessage: "Ops... Deu ruim",
+        bodyMessage: "Ocorreu um erro ao buscar as informções dos pacientes",
+        colorText: "red",
+      });
     }
   },
 

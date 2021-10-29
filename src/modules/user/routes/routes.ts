@@ -6,7 +6,7 @@ export default [
     path: "/",
     name: "Home",
     meta: {
-      title: "Lista dos usuários",
+      title: "Lista de pacientes",
     },
     component: (): Promise<typeof import("*.vue")> =>
       import(/* webpackChunkName: "home" */ "@/modules/user/pages/Home.vue"),

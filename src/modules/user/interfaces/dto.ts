@@ -39,6 +39,6 @@ export interface IGetUserData {
   };
   id: {
     name: string;
-    value: number;
+    value: string;
   };
 }
