@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app color="blue darken-1" dark>
+  <v-app-bar app color="teal" dark>
     <div class="d-flex align-center">
       <v-img
         alt="Vuetify Logo"

@@ -3,8 +3,9 @@
     :headers="headers"
     :items="users"
     :search="search"
-    sort-by="name"
     :footer-props="footerConfig"
+    sort-by="name"
+    hide-default-footer
   >
     <template v-slot:top>
       <v-container>
@@ -71,7 +72,7 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" text @click="close()"> Fechar </v-btn>
+            <v-btn color="teal" text @click="close()"> Fechar </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -83,7 +84,7 @@
             class="mr-2"
             v-bind="attrs"
             v-on="on"
-            color="blue darken-1"
+            color="teal"
             @click="viewUserInfo(item)"
           >
             mdi-eye-outline
@@ -95,7 +96,7 @@
     <template v-slot:no-data>
       <div class="py-4">Nenhum usuário encontrado</div>
       <img
-        src="../../../assets/images/not-found.png"
+        src="@/assets/images/not-found.png"
         alt="Nenhum dado encontrado"
         width="300px"
       />
