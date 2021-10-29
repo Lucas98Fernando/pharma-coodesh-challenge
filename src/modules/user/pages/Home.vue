@@ -22,22 +22,37 @@ export default Vue.extend({
   },
 
   async created() {
-    await this.ActionGetUsers();
-    this.users.results.forEach((user: IGetUserData) => {
-      this.$data.getUsers.push({
-        name: `${user.name.first} ${user.name.last}`,
-        gender: user.gender,
-        birth: user.dob.date,
+    // Utilizando o try and catch para realizar um tratamento, caso aconteça algo de errado na store ou no axios
+    try {
+      await this.ActionGetUsers();
+      this.users.results.forEach((user: IGetUserData) => {
+        this.$data.getUsers.push({
+          fullName: `${user.name.first} ${user.name.last}`,
+          title: user.name.title,
+          gender: user.gender === "female" ? "Feminino" : "Masculino",
+          birth: user.dob.date,
+          email: user.email,
+          pictureMedium: user.picture.medium,
+          phone: user.phone,
+          nanationality: user.nat,
+          address: `${user.location.street.name}, ${user.location.street.number} - ${user.location.city} `,
+          country: user.location.country,
+          identification: user.id.value ? user.id.value : "Não possui ID",
+        });
       });
-    });
-    console.log(this.users.results);
+      console.log(this.users.results);
+    } catch (e) {
+      console.log(e);
+    }
   },
 
   computed: {
+    // Pegando o state users da store do Vuex
     ...mapState("user", ["users"]),
   },
 
   methods: {
+    // Métodos vindos da store do Vuex
     ...mapActions("user", ["ActionGetUsers"]),
   },
 });

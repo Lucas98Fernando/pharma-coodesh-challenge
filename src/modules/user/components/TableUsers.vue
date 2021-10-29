@@ -10,9 +10,7 @@
       <v-container>
         <v-row class="py-4" justify="center">
           <v-col cols="12" class="text-center">
-            <div class="subtitle-1 font-weight-bold">
-              Lista de usuários da Pharma .Inc
-            </div>
+            <h2>Lista de usuários da Pharma .Inc</h2>
           </v-col>
           <v-col cols="12">
             <v-text-field
@@ -29,21 +27,46 @@
         <v-card class="mx-auto" outlined>
           <v-list-item three-line>
             <v-list-item-content>
-              <div class="text-overline mb-4">OVERLINE</div>
-              <v-list-item-title class="text-h5 mb-1">
-                Headline 5
+              <div class="mb-4">{{ userInfo.title }}.</div>
+              <v-list-item-title class="text-h5 mb-2">
+                {{ userInfo.fullName }}
               </v-list-item-title>
-              <v-list-item-subtitle
-                >Greyhound divisely hello coldly
-                fonwderfully</v-list-item-subtitle
-              >
+
+              <v-list-item-subtitle>
+                <v-icon small class="mr-1">
+                  mdi-card-account-details-outline
+                </v-icon>
+                {{ userInfo.identification }}
+              </v-list-item-subtitle>
+              <v-list-item-subtitle>
+                <v-icon small class="mr-1">mdi-email-outline</v-icon>
+                {{ userInfo.email }}
+              </v-list-item-subtitle>
+              <v-list-item-subtitle>
+                <v-icon small class="mr-1">mdi-gender-male-female</v-icon>
+                {{ userInfo.gender }}
+              </v-list-item-subtitle>
+              <v-list-item-subtitle>
+                <v-icon small class="mr-1">mdi-cake-variant-outline</v-icon>
+                {{ userInfo.birth }}
+              </v-list-item-subtitle>
+              <v-list-item-subtitle>
+                <v-icon small class="mr-1">mdi-cellphone</v-icon>
+                {{ userInfo.phone }}
+              </v-list-item-subtitle>
+              <v-list-item-subtitle>
+                <v-icon small class="mr-1">mdi-map-marker-outline</v-icon>
+                {{ userInfo.address }}
+              </v-list-item-subtitle>
+              <v-list-item-subtitle>
+                <v-icon small class="mr-1">mdi-flag-outline</v-icon>
+                {{ userInfo.country }}
+              </v-list-item-subtitle>
             </v-list-item-content>
 
-            <v-list-item-avatar
-              tile
-              size="80"
-              color="grey"
-            ></v-list-item-avatar>
+            <v-list-item-avatar size="80" color="grey">
+              <img :src="userInfo.pictureMedium" alt="Profile Image" />
+            </v-list-item-avatar>
           </v-list-item>
 
           <v-card-actions>
@@ -95,7 +118,7 @@ export default Vue.extend({
         {
           text: "Nome",
           align: "start",
-          value: "name",
+          value: "fullName",
         },
         {
           text: "Gênero",
@@ -116,9 +139,17 @@ export default Vue.extend({
       },
       editedIndex: -1,
       userInfo: {
-        name: "",
+        fullName: "",
+        title: "",
         gender: "",
         birth: "",
+        email: "",
+        pictureMedium: "",
+        phone: "",
+        nationality: "",
+        address: "",
+        country: "",
+        identification: "",
       },
     };
   },

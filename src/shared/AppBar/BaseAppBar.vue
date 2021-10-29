@@ -15,6 +15,8 @@
 
     <v-spacer></v-spacer>
 
+    <div class="mr-3">Olá, seja bem-vindo!</div>
+
     <v-avatar>
       <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
     </v-avatar>
