@@ -5,6 +5,7 @@
     :search="search"
     :items-per-page="itemsPerPage"
     :footer-props="footerConfig"
+    no-results-text="Nenhum resultado correspondente"
     sort-by="name"
     hide-default-footer
   >
@@ -16,6 +17,17 @@
               Lista de pacientes da
               <span class="teal--text">Pharma .Inc</span>
             </h2>
+            <p class="text--secondary">
+              Esse desafio proposto pela Coodesh foi desenvolvido com
+              <v-icon small color="red">mdi-cards-heart</v-icon> por
+              <a
+                class="teal--text"
+                href="https://github.com/Lucas98Fernando"
+                target="_blank"
+              >
+                Lucas Fernando
+              </a>
+            </p>
           </v-col>
           <v-col cols="12">
             <v-text-field

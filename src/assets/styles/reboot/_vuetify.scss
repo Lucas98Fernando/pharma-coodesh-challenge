@@ -1,5 +1,8 @@
 .v-application {
   font-family: $ubuntu;
+  a {
+    text-decoration: none;
+  }
   .v-btn {
     text-transform: none;
     border-radius: 7px;

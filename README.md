@@ -2,6 +2,24 @@
 
 - Desafio front-end developer 2021, proposto pela [Coodesh](https://coodesh.com/).
 
+## :tv: Telas da aplicação
+
+- **Home**, onde é listado os pacientes vindos da API [Random User Generator](https://randomuser.me/).
+
+<img src="public/screenshots/home.png" />
+
+- **Dialog** de informações do paciente selecionado.
+
+<img src="public/screenshots/dialog-open.png" />
+
+- **Detalhes do paciente** com URL para compartilhamento.
+
+<img src="public/screenshots/user-details.png" />
+
+- **Página não encontrada**, caso o paciente acesse uma rota que não exista na aplicação.
+
+<img src="public/screenshots/page-not-found.png" />
+
 ## :computer: Tecnologias, frameworks e ferramentas utilizadas:
 
 - [Vue.js](https://br.vuejs.org/)

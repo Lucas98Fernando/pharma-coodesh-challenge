@@ -83,7 +83,6 @@ export default Vue.extend({
           });
         });
         incrementResults = this.qtdResults += 5;
-        console.log(this.users.results);
       } catch (e) {
         this.$root.$emit("show-base-dialog", {
           titleMessage: "Ops... Deu ruim",
