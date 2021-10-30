@@ -1,14 +1,16 @@
 <template>
   <v-app-bar app color="teal" dark>
     <div class="d-flex align-center">
-      <v-img
-        alt="Vuetify Logo"
-        class="shrink mr-2"
-        contain
-        src="@/assets/images/logo.png"
-        transition="scale-transition"
-        width="50"
-      />
+      <router-link to="/">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="@/assets/images/logo.png"
+          transition="scale-transition"
+          width="50"
+        />
+      </router-link>
 
       <v-toolbar-title class="font-weight-bold">Pharma. Inc</v-toolbar-title>
     </div>

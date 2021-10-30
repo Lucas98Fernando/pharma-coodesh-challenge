@@ -11,4 +11,15 @@ export default [
     component: (): Promise<typeof import("*.vue")> =>
       import(/* webpackChunkName: "home" */ "@/modules/user/pages/Home.vue"),
   },
+  {
+    path: "/user*",
+    name: "User Shared",
+    meta: {
+      title: "Detalhes do paciente",
+    },
+    component: (): Promise<typeof import("*.vue")> =>
+      import(
+        /* webpackChunkName: "user-shared" */ "@/modules/user/pages/UserShared.vue"
+      ),
+  },
 ];

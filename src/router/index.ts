@@ -12,6 +12,15 @@ const routes: Array<RouteConfig> = [
       import(/* webpackChunkName: "main-layout" */ "@/layouts/MainLayout.vue"),
     children: [...userRoutes],
   },
+  {
+    path: "*",
+    name: "Página não encontrada",
+    meta: {
+      title: "Ops... Página não encontrada!",
+    },
+    component: (): Promise<typeof import("*.vue")> =>
+      import(/* webpackChunkName: "not-found" */ "@/error/PageNotFound.vue"),
+  },
 ];
 
 const router = new VueRouter({

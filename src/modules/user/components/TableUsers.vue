@@ -39,35 +39,43 @@
               </v-list-item-title>
 
               <v-list-item-subtitle>
-                <v-icon small class="mr-1">
+                <v-icon small class="mr-1" color="teal">
                   mdi-card-account-details-outline
                 </v-icon>
                 {{ userInfo.identification }}
               </v-list-item-subtitle>
               <v-list-item-subtitle>
-                <v-icon small class="mr-1">mdi-email-outline</v-icon>
+                <v-icon small class="mr-1" color="teal">
+                  mdi-email-outline
+                </v-icon>
                 {{ userInfo.email }}
               </v-list-item-subtitle>
               <v-list-item-subtitle>
-                <v-icon small class="mr-1">
+                <v-icon small class="mr-1" color="teal">
                   mdi-gender-{{ toggleGenderIcon }}
                 </v-icon>
                 {{ userInfo.gender }}
               </v-list-item-subtitle>
               <v-list-item-subtitle>
-                <v-icon small class="mr-1">mdi-cake-variant-outline</v-icon>
+                <v-icon small class="mr-1" color="teal">
+                  mdi-cake-variant-outline
+                </v-icon>
                 {{ userInfo.birth }}
               </v-list-item-subtitle>
               <v-list-item-subtitle>
-                <v-icon small class="mr-1">mdi-cellphone</v-icon>
+                <v-icon small class="mr-1" color="teal">mdi-cellphone</v-icon>
                 {{ userInfo.phone }}
               </v-list-item-subtitle>
               <v-list-item-subtitle>
-                <v-icon small class="mr-1">mdi-map-marker-outline</v-icon>
+                <v-icon small class="mr-1" color="teal">
+                  mdi-map-marker-outline
+                </v-icon>
                 {{ userInfo.address }}
               </v-list-item-subtitle>
               <v-list-item-subtitle>
-                <v-icon small class="mr-1">mdi-flag-outline</v-icon>
+                <v-icon small class="mr-1" color="teal">
+                  mdi-flag-outline
+                </v-icon>
                 {{ userInfo.country }}
               </v-list-item-subtitle>
             </v-list-item-content>
@@ -79,7 +87,7 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="teal" text @click="close()"> Fechar </v-btn>
+            <v-btn color="teal" text @click="closeDialog()"> Fechar </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -88,7 +96,7 @@
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-icon
-            class="mr-2"
+            class="mr-3"
             v-bind="attrs"
             v-on="on"
             color="teal"
@@ -98,6 +106,19 @@
           </v-icon>
         </template>
         <span>Ver detalhes</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <router-link
+            :to="{
+              path: '/user',
+              query: item,
+            }"
+          >
+            <v-icon v-bind="attrs" v-on="on" color="teal">mdi-link</v-icon>
+          </router-link>
+        </template>
+        <span>Gerar link</span>
       </v-tooltip>
     </template>
     <template v-slot:no-data>
@@ -173,7 +194,7 @@ export default Vue.extend({
 
   watch: {
     dialog(val) {
-      val || this.close();
+      val || this.closeDialog();
     },
   },
 
@@ -191,7 +212,7 @@ export default Vue.extend({
       this.dialog = true;
     },
 
-    close() {
+    closeDialog() {
       this.dialog = false;
     },
   },

@@ -1,5 +1,10 @@
 .v-application {
   font-family: $ubuntu;
+  .v-btn {
+    text-transform: none;
+    border-radius: 7px;
+    font-weight: 600;
+  }
   .v-dialog {
     border-radius: 20px;
   }
