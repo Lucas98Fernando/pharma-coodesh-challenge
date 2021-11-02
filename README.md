@@ -55,19 +55,19 @@ git clone git@github.com:Lucas98Fernando/pharma-coodesh-challenge.git
 ### :two: Instalar as dependências do projeto
 
 ```
-yarn install
+npm install
 ```
 
 ou somente:
 
 ```
-yarn
+npm i
 ```
 
 ### :three: Compilação e hot-reload para ambiente de desenvolvimento
 
 ```
-yarn dev
+npm run serve
 ```
 
 - Após concluir os passos anteriores, acesse: http://localhost:8080
@@ -77,25 +77,25 @@ yarn dev
 ### :four: Compilar e minificar para produção
 
 ```
-yarn build
+npm run build
 ```
 
 ### :five: Executar os testes unitários
 
 ```
-yarn test:unit
+npm run test:unit
 ```
 
 ### :six: Executar os testes "end-to-end" 
 
 ```
-yarn test:e2e
+npm run test:e2e
 ```
 
 ### :seven: Lints e corrigir arquivos
 
 ```
-yarn lint
+npm run lint
 ```
 
 ### Customizar configuração
