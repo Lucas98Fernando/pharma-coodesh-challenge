@@ -41,19 +41,21 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import "@/assets/styles/mixins/flex-center";
 .base-loading {
-  @include flex-center(true);
-  justify-content: space-between;
+  display: grid;
+  place-items: center;
+  // @include flex-center(true);
+  // justify-content: space-between;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  // top: 0;
+  // bottom: 0;
+  // right: 0;
+  // left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
   z-index: 999;
   margin: 0 auto;
-  padding: 1rem;
+  // padding: 1rem;
   .progress-middle {
     @include flex-center(true);
     img {
