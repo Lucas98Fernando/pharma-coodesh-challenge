@@ -35,7 +35,7 @@
 
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/)
+- [NPM](https://www.npmjs.com/) (Já vem por padrão na instalação do Node.js)
 - Editor de código (Recomendo utilizar o [VSCode](https://code.visualstudio.com/))
 
 ## :rocket: Rodando a aplicação localmente
